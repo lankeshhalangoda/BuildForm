@@ -111,7 +111,7 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
       {isFormVisible && <div className="overlay" onClick={() => setIsFormVisible(false)} />}
 
       <div className="sidebar-header">
-        <FontAwesomeIcon icon={faHome} /> Dashboard &gt; Demo Form
+        <FontAwesomeIcon icon={faHome} /> &nbsp; Dashboard &gt; Demo Form
         <FontAwesomeIcon icon={faCog} style={{ marginLeft: 'auto' }} />
       </div>
 
@@ -153,7 +153,6 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
         </>
       )}
 
-      {/* Welcome Screen Overlay */}
       <div className={`form-container ${isFormVisible ? 'form-visible slide-in' : ''}`}>
         <div className="form-header">
           <span>
@@ -224,11 +223,12 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
         </div>
       </div>
 
-      {/* Name Overlay */}
       {isNameOverlayVisible && (
         <div className={`form-container slide-in ${isNameOverlayVisible ? 'form-visible' : ''}`}>
           <div className="form-header">
-            <span>Enter Your Name</span>
+          <span>
+            <FontAwesomeIcon icon={faCog} />&nbsp;&nbsp;Settings
+          </span>
             <span className="close-btn" onClick={() => setIsNameOverlayVisible(false)}>&times;</span>
           </div>
           <div className="form-fields">
@@ -274,11 +274,12 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
         </div>
       )}
 
-      {/* Email Overlay */}
       {isEmailOverlayVisible && (
         <div className={`form-container slide-in ${isEmailOverlayVisible ? 'form-visible' : ''}`}>
           <div className="form-header">
-            <span>Enter Your Email</span>
+          <span>
+            <FontAwesomeIcon icon={faCog} />&nbsp;&nbsp;Settings
+          </span>
             <span className="close-btn" onClick={() => setIsEmailOverlayVisible(false)}>&times;</span>
           </div>
           <div className="form-fields">

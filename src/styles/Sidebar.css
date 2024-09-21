@@ -27,7 +27,6 @@
   cursor: pointer;
 }
 
-/* General styles for tabs */
 .sidebar-tabs {
   display: flex;
   gap: 0;
@@ -46,19 +45,16 @@
   transition: background-color 0.3s;
 }
 
-/* Apply border radius only to the left border of the first tab */
 .tab:first-child {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
 
-/* Apply border radius only to the right border of the last tab */
 .tab:last-child {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
-/* Remove border radius from all other tabs */
 .tab:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
@@ -84,7 +80,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 350px; /* Same width as sidebar */
+  width: 350px;
   height: 100vh;
   padding: 20px;
   background-color: #fff;
@@ -105,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px; /* Reduced margin */
+  margin-bottom: 15px;
 }
 
 .form-header .fa-cog {
@@ -120,7 +116,7 @@
 .form-fields {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Reduced gap */
+  gap: 5px;
 }
 
 .form-fields label {
@@ -131,11 +127,11 @@
 }
 
 .form-fields input[type="text"] {
-  width: 100%; /* Centered text fields */
+  width: 100%;
   padding: 6px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 8px; /* Reduced margin */
+  margin-bottom: 8px;
   box-sizing: border-box;
 }
 
@@ -145,11 +141,10 @@
   padding: 6px 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-
   cursor: pointer;
-  font-size: 0.875rem; /* Smaller font size */
-  width: 25%; /* 1/4th of the text field width */
-  margin-top: 8px; /* Space above the button */
+  font-size: 0.875rem;
+  width: 25%;
+  margin-top: 8px;
 }
 
 .upload-btn .fa-upload {
@@ -168,11 +163,10 @@
 
 .remove-image {
   display: block;
-  margin: 5px auto; /* Centered remove button below the image */
+  margin: 5px auto;
   padding: 6px 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-
   cursor: pointer;
 }
 
@@ -193,7 +187,7 @@
 .button-group {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px; /* Reduced margin */
+  margin-top: 15px;
 }
 
 .save-button,
@@ -201,51 +195,48 @@
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
 }
 
 .save-button {
-  background-color: #000; /* Black background for save */
-  color: #fff; /* White text */
-  margin-right: 5px; /* Reduced space between save and discard */
+  background-color: #000;
+  color: #fff;
+  margin-right: 5px;
 }
 
 .discard-button {
-  background-color: #fff; /* White background for discard */
-  color: #dc3545; /* Red text */
+  background-color: #fff;
+  color: #dc3545;
 }
 
-/* WebKit browsers (Chrome, Safari, etc.) */
 .form-container::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar */
+  width: 6px;
 }
 
 .form-container::-webkit-scrollbar-track {
-  background: #f4f4f4; /* Light background for track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background: #f4f4f4;
+  border-radius: 10px;
 }
 
 .form-container::-webkit-scrollbar-thumb {
-  background-color: #ccc; /* Light color for the scrollbar thumb */
-  border-radius: 50px; /* Rounded corners for the thumb */
-  border: 2px solid #f4f4f4; /* Creates a padding effect around the thumb */
+  background-color: #ccc;
+  border-radius: 50px;
+  border: 2px solid #f4f4f4;
 }
 
 .form-container::-webkit-scrollbar-thumb:hover {
-  background-color: #b0b0b0; /* Slightly darker on hover */
+  background-color: #b0b0b0;
 }
 
-/* Firefox */
 .form-container {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: #ccc #f4f4f4; /* Thumb color and track color */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f4f4f4;
 }
 
-/* For Edge and other modern browsers */
 .form-container {
-  scroll-behavior: smooth; /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
 }
 
 @keyframes slide-in {
@@ -262,5 +253,3 @@
 .form-container.slide-in {
   animation: slide-in 0.3s forwards;
 }
-
-

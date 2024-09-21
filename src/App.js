@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import FormEditor from './components/FormEditor';
-import './App.css'; // Custom styles
+import './App.css';
 
 const App = () => {
   const [editorContent, setEditorContent] = useState({
@@ -14,7 +14,6 @@ const App = () => {
     <div className="app">
       <Sidebar setEditorContent={setEditorContent} imagePlacement={imagePlacement} setImagePlacement={setImagePlacement} />
       <FormEditor content={editorContent} imagePlacement={imagePlacement} />
-
     </div>
   );
 };

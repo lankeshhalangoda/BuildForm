@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/FormEditor.css'; // Reuse styles for consistency
+import '../styles/FormEditor.css';
 
 const FormEditor = ({ content, imagePlacement }) => {
   const containerStyle = {

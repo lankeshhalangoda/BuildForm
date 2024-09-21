@@ -4,9 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCog, faUpload, faAlignLeft, faAlignRight } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
-  const [title, setTitle] = useState('Welcome to our form');
-  const [description, setDescription] = useState('This is a description of the form.');
-  const [buttonText, setButtonText] = useState('Start');
+  const [welcomeTitle, setWelcomeTitle] = useState('Welcome to our form');
+  const [welcomeDescription, setWelcomeDescription] = useState('This is a description of the form.');
+  const [welcomeButtonText, setWelcomeButtonText] = useState('Start');
+
+  const [nameTitle, setNameTitle] = useState('Enter Your Name');
+  const [nameDescription, setNameDescription] = useState('Please enter your name.');
+  const [nameButtonText, setNameButtonText] = useState('Submit');
+
+  const [emailTitle, setEmailTitle] = useState('Enter Your Email');
+  const [emailDescription, setEmailDescription] = useState('Please enter your email.');
+  const [emailButtonText, setEmailButtonText] = useState('Send');
+
   const [imagePreview, setImagePreview] = useState(null);
   const [cachedImage, setCachedImage] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -61,21 +70,40 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
     }
 
     updateForm('image', finalImageUrl);
-    updateForm('title', title);
-    updateForm('description', description);
-    updateForm('buttonText', buttonText);
+    updateForm('title', welcomeTitle);
+    updateForm('description', welcomeDescription);
+    updateForm('buttonText', welcomeButtonText);
   };
 
-  const handleDiscard = () => {
-    setTitle('Welcome to our form');
-    setDescription('This is a description of the form.');
-    setButtonText('Start');
+  const handleWelcomeDiscard = () => {
+    setWelcomeTitle('Welcome to our form');
+    setWelcomeDescription('This is a description of the form.');
+    setWelcomeButtonText('Start');
     setImagePreview(null);
     setCachedImage(null);
     updateForm('title', 'Welcome to our form');
     updateForm('description', 'This is a description of the form.');
     updateForm('buttonText', 'Start');
-    updateForm('image', '');
+  };
+
+  const handleNameDiscard = () => {
+    setNameTitle('Enter Your Name');
+    setNameDescription('Please enter your name.');
+    setNameButtonText('Submit');
+    setIsNameOverlayVisible(false);
+    updateForm('title', 'Enter Your Name');
+    updateForm('description', 'Please enter your name.');
+    updateForm('buttonText', 'Submit');
+  };
+
+  const handleEmailDiscard = () => {
+    setEmailTitle('Enter Your Email');
+    setEmailDescription('Please enter your email.');
+    setEmailButtonText('Send');
+    setIsEmailOverlayVisible(false);
+    updateForm('title', 'Enter Your Email');
+    updateForm('description', 'Please enter your email.');
+    updateForm('buttonText', 'Send');
   };
 
   return (
@@ -96,11 +124,32 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
 
       {activeTab === 'content' && (
         <>
-          <button className="welcome-button" onClick={() => setIsFormVisible(!isFormVisible)}>
+          <button className="welcome-button" onClick={() => {
+            setEditorContent({
+              title: welcomeTitle,
+              description: welcomeDescription,
+              buttonText: welcomeButtonText,
+            });
+            setIsFormVisible(!isFormVisible);
+          }}>
             Welcome Screen
           </button>
-          <button className="welcome-button" onClick={() => setIsNameOverlayVisible(true)}>Enter Your Name</button>
-          <button className="welcome-button" onClick={() => setIsEmailOverlayVisible(true)}>Enter Your Email</button>
+          <button className="welcome-button" onClick={() => {
+            setEditorContent({
+              title: nameTitle,
+              description: nameDescription,
+              buttonText: nameButtonText,
+            });
+            setIsNameOverlayVisible(true);
+          }}>Enter Your Name</button>
+          <button className="welcome-button" onClick={() => {
+            setEditorContent({
+              title: emailTitle,
+              description: emailDescription,
+              buttonText: emailButtonText,
+            });
+            setIsEmailOverlayVisible(true);
+          }}>Enter Your Email</button>
         </>
       )}
 
@@ -116,27 +165,27 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
           <label>Title</label>
           <input
             type="text"
-            value={title}
+            value={welcomeTitle}
             onChange={(e) => {
-              setTitle(e.target.value);
+              setWelcomeTitle(e.target.value);
               updateForm('title', e.target.value);
             }}
           />
           <label>Description</label>
           <input
             type="text"
-            value={description}
+            value={welcomeDescription}
             onChange={(e) => {
-              setDescription(e.target.value);
+              setWelcomeDescription(e.target.value);
               updateForm('description', e.target.value);
             }}
           />
           <label>Button Text</label>
           <input
             type="text"
-            value={buttonText}
+            value={welcomeButtonText}
             onChange={(e) => {
-              setButtonText(e.target.value);
+              setWelcomeButtonText(e.target.value);
               updateForm('buttonText', e.target.value);
             }}
           />
@@ -170,7 +219,7 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
           </div>
           <div className="button-group">
             <button className="save-button" onClick={handleSave}>Save</button>
-            <button className="discard-button" onClick={handleDiscard}>Discard</button>
+            <button className="discard-button" onClick={handleWelcomeDiscard}>Discard</button>
           </div>
         </div>
       </div>
@@ -184,12 +233,42 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
           </div>
           <div className="form-fields">
             <label>Title</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={nameTitle}
+              onChange={(e) => {
+                setNameTitle(e.target.value);
+                updateForm('title', e.target.value);
+              }}
+            />
             <label>Description</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={nameDescription}
+              onChange={(e) => {
+                setNameDescription(e.target.value);
+                updateForm('description', e.target.value);
+              }}
+            />
+            <label>Button Text</label>
+            <input
+              type="text"
+              value={nameButtonText}
+              onChange={(e) => {
+                setNameButtonText(e.target.value);
+                updateForm('buttonText', e.target.value);
+              }}
+            />
             <div className="button-group">
-              <button className="save-button" onClick={() => setIsNameOverlayVisible(false)}>Save</button>
-              <button className="discard-button" onClick={() => setIsNameOverlayVisible(false)}>Discard</button>
+              <button className="save-button" onClick={() => {
+                setIsNameOverlayVisible(false);
+                setEditorContent({
+                  title: nameTitle,
+                  description: nameDescription,
+                  buttonText: nameButtonText,
+                });
+              }}>Save</button>
+              <button className="discard-button" onClick={handleNameDiscard}>Discard</button>
             </div>
           </div>
         </div>
@@ -200,13 +279,36 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
         <div className={`form-container slide-in ${isEmailOverlayVisible ? 'form-visible' : ''}`}>
           <div className="form-header">
             <span>Enter Your Email</span>
-            <span className="close-btn slide-out" onClick={() => setIsEmailOverlayVisible(false)}>&times;</span>
+            <span className="close-btn" onClick={() => setIsEmailOverlayVisible(false)}>&times;</span>
           </div>
           <div className="form-fields">
             <label>Title</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={emailTitle}
+              onChange={(e) => {
+                setEmailTitle(e.target.value);
+                updateForm('title', e.target.value);
+              }}
+            />
             <label>Description</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={emailDescription}
+              onChange={(e) => {
+                setEmailDescription(e.target.value);
+                updateForm('description', e.target.value);
+              }}
+            />
+            <label>Button Text</label>
+            <input
+              type="text"
+              value={emailButtonText}
+              onChange={(e) => {
+                setEmailButtonText(e.target.value);
+                updateForm('buttonText', e.target.value);
+              }}
+            />
             <label>Required</label>
             <div className="toggle-switch">
               <input 
@@ -217,8 +319,15 @@ const Sidebar = ({ setEditorContent, imagePlacement, setImagePlacement }) => {
               <span className="toggle-label">{isEmailRequired ? 'Yes' : 'No'}</span>
             </div>
             <div className="button-group">
-              <button className="save-button" onClick={() => setIsEmailOverlayVisible(false)}>Save</button>
-              <button className="discard-button" onClick={() => setIsEmailOverlayVisible(false)}>Discard</button>
+              <button className="save-button" onClick={() => {
+                setIsEmailOverlayVisible(false);
+                setEditorContent({
+                  title: emailTitle,
+                  description: emailDescription,
+                  buttonText: emailButtonText,
+                });
+              }}>Save</button>
+              <button className="discard-button" onClick={handleEmailDiscard}>Discard</button>
             </div>
           </div>
         </div>

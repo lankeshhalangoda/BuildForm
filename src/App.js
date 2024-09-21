@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar';
+import FormEditor from './components/FormEditor';
+import './App.css'; // Custom styles
 
-function App() {
+const App = () => {
+  const [editorContent, setEditorContent] = useState({
+    title: 'Welcome to our form',
+    description: 'This is a description of the form',
+  });
+  const [imagePlacement, setImagePlacement] = useState('left');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Sidebar setEditorContent={setEditorContent} imagePlacement={imagePlacement} setImagePlacement={setImagePlacement} />
+      <FormEditor content={editorContent} imagePlacement={imagePlacement} />
+
     </div>
   );
-}
+};
 
 export default App;

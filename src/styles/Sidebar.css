@@ -1,0 +1,266 @@
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  color: #333;
+}
+
+.sidebar-header .fa-home {
+  margin-right: 8px;
+}
+
+.sidebar-header .fa-cog {
+  cursor: pointer;
+}
+
+/* General styles for tabs */
+.sidebar-tabs {
+  display: flex;
+  gap: 0;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/* Apply border radius only to the left border of the first tab */
+.tab:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Apply border radius only to the right border of the last tab */
+.tab:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Remove border radius from all other tabs */
+.tab:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.tab.selected {
+  background-color: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.welcome-button {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px; /* Same width as sidebar */
+  height: 100vh;
+  padding: 20px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  z-index: 10;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.form-container.form-visible {
+  transform: translateX(0);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+.form-header .fa-cog {
+  font-size: 20px;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduced gap */
+}
+
+.form-fields label {
+  display: block;
+  margin: 5px 0 2px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-fields input[type="text"] {
+  width: 100%; /* Centered text fields */
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px; /* Reduced margin */
+  box-sizing: border-box;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  cursor: pointer;
+  font-size: 0.875rem; /* Smaller font size */
+  width: 25%; /* 1/4th of the text field width */
+  margin-top: 8px; /* Space above the button */
+}
+
+.upload-btn .fa-upload {
+  margin-right: 5px;
+}
+
+.image-preview {
+  margin-top: 10px;
+}
+
+.image-preview img {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.remove-image {
+  display: block;
+  margin: 5px auto; /* Centered remove button below the image */
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.image-placement {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.placement-btn {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px; /* Reduced margin */
+}
+
+.save-button,
+.discard-button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save-button {
+  background-color: #000; /* Black background for save */
+  color: #fff; /* White text */
+  margin-right: 5px; /* Reduced space between save and discard */
+}
+
+.discard-button {
+  background-color: #fff; /* White background for discard */
+  color: #dc3545; /* Red text */
+}
+
+/* WebKit browsers (Chrome, Safari, etc.) */
+.form-container::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+}
+
+.form-container::-webkit-scrollbar-track {
+  background: #f4f4f4; /* Light background for track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.form-container::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Light color for the scrollbar thumb */
+  border-radius: 50px; /* Rounded corners for the thumb */
+  border: 2px solid #f4f4f4; /* Creates a padding effect around the thumb */
+}
+
+.form-container::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0; /* Slightly darker on hover */
+}
+
+/* Firefox */
+.form-container {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #ccc #f4f4f4; /* Thumb color and track color */
+}
+
+/* For Edge and other modern browsers */
+.form-container {
+  scroll-behavior: smooth; /* Smooth scrolling behavior */
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.form-container.slide-in {
+  animation: slide-in 0.3s forwards;
+}
+
+

@@ -1,0 +1,105 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 200px;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 60%;
+  
+}
+
+.text-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.start-button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 45px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.start-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.press-enter {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.press {
+  color: grey;
+  margin-right: 5px;
+}
+
+.enter {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.enter-icon {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.form-image {
+  max-width: 40%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-left: 100px;
+  margin-right: 100px;
+}
